@@ -24,9 +24,6 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding= DataBindingUtil.setContentView(this,R.layout.activity_main)
 
-        val testModel: TestModel = TestModel("unknown", "hb rd, hunington, united states.")
-        binding.testmodel = testModel
-
         //observer
         getTodosObserve()
 
@@ -39,6 +36,7 @@ class MainActivity : AppCompatActivity() {
                 is Outcome.Success ->{
                     if(outcome.data != null){
                         Toast.makeText(this,"Got it", Toast.LENGTH_SHORT).show()
+                        binding.todos = outcome.data
                         mNewViewModel.navigationComplete()
                     }else{
                         Toast.makeText(this,"no data", Toast.LENGTH_SHORT).show()

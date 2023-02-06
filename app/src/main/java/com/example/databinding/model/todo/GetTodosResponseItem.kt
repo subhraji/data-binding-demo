@@ -1,8 +1,8 @@
 package com.example.databinding.model.todo
 
 data class GetTodosResponseItem(
-    val completed: Boolean,
-    val id: Int,
-    val title: String,
-    val userId: Int
+    var completed: Boolean,
+    var id: Int,
+    var title: String,
+    var userId: Int
 )
