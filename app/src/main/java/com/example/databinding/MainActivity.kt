@@ -22,7 +22,7 @@ import dagger.hilt.android.AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
     private val mNewViewModel: NewViewModel by viewModels()
-    private var testList: MutableList<TestModel> = mutableListOf()
+    private var testList: MutableList<GetTodosResponseItem> = mutableListOf()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -33,9 +33,9 @@ class MainActivity : AppCompatActivity() {
 
         mNewViewModel.getTodos()
 
-        /*testList.add(TestModel("jhon","fddg sgs vsds"))
-        testList.add(TestModel("aryan","fddg sgs"))
-        testList.add(TestModel("isaiah","fddg efa ef"))
+        /*testList.add(GetTodosResponseItem(true,1,"hjdgf",22))
+        testList.add(GetTodosResponseItem(true,2,"daS",23))
+        testList.add(GetTodosResponseItem(true,3,"fdv",24))
         fillTestRecycler(testList)*/
     }
 
