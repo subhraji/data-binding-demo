@@ -9,9 +9,12 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
+import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.databinding.adapter.TestAdapter
 import com.example.databinding.databinding.ActivityMainBinding
 import com.example.databinding.model.Outcome
 import com.example.databinding.model.TestModel
+import com.example.databinding.model.todo.GetTodosResponseItem
 import com.example.databinding.viewmodel.NewViewModel
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -19,6 +22,7 @@ import dagger.hilt.android.AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
     private val mNewViewModel: NewViewModel by viewModels()
+    private var testList: MutableList<TestModel> = mutableListOf()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -28,6 +32,11 @@ class MainActivity : AppCompatActivity() {
         getTodosObserve()
 
         mNewViewModel.getTodos()
+
+        /*testList.add(TestModel("jhon","fddg sgs vsds"))
+        testList.add(TestModel("aryan","fddg sgs"))
+        testList.add(TestModel("isaiah","fddg efa ef"))
+        fillTestRecycler(testList)*/
     }
 
     private fun getTodosObserve(){
@@ -37,6 +46,7 @@ class MainActivity : AppCompatActivity() {
                     if(outcome.data != null){
                         Toast.makeText(this,"Got it", Toast.LENGTH_SHORT).show()
                         binding.todos = outcome.data
+                        fillTestRecycler(outcome.data!!)
                         mNewViewModel.navigationComplete()
                     }else{
                         Toast.makeText(this,"no data", Toast.LENGTH_SHORT).show()
@@ -58,4 +68,11 @@ class MainActivity : AppCompatActivity() {
         })
     }
 
+    private fun fillTestRecycler(list: MutableList<GetTodosResponseItem>) {
+        val gridLayoutManager = LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false)
+        binding.testRecycler.apply {
+            layoutManager = gridLayoutManager
+            adapter = TestAdapter(list,this@MainActivity)
+        }
+    }
 }
