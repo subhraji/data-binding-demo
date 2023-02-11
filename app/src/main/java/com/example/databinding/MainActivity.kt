@@ -33,9 +33,9 @@ class MainActivity : AppCompatActivity() {
 
         mNewViewModel.getTodos()
 
-        /*testList.add(GetTodosResponseItem(true,1,"hjdgf",22))
-        testList.add(GetTodosResponseItem(true,2,"daS",23))
-        testList.add(GetTodosResponseItem(true,3,"fdv",24))
+        /*testList.add(GetTodosResponseItem(true,1,"hjdgf",22,"https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTF8fGF2YXRhcnxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=1600&q=60"))
+        testList.add(GetTodosResponseItem(true,2,"daS",23,"https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTF8fGF2YXRhcnxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=1600&q=60"))
+        testList.add(GetTodosResponseItem(true,3,"fdv",24,"https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTF8fGF2YXRhcnxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=1600&q=60"))
         fillTestRecycler(testList)*/
     }
 
